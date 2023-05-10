@@ -16,6 +16,12 @@ let insertText = (value) => {
 		editBuilder.replace(range,value);
 	});
 };
+let getImageTemplate = () => {
+	return vscode.workspace.getConfiguration("staticSiteHero")["imagePathTemplate"];
+};
+let getFileTemplate = () => {
+	return vscode.workspace.getConfiguration("staticSiteHero")["filePathTemplate"];
+}
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -33,7 +39,13 @@ function activate(context) {
 		let linkTypeList = ['File','Image'];
 		vscode.window.showQuickPick(linkTypeList, {placeHolder: 'Link Type'})
 			.then(result => {
-				insertText(result)
+				//insertText(result);
+				if (result === 'File') {
+					insertText(getFileTemplate());
+				} else if (result === 'Image') {
+					insertText(getImageTemplate());
+
+				}
 			});
 	});
 	context.subscriptions.push(fileLinkDisposable);
