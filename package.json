@@ -11,7 +11,7 @@
   ],
   "activationEvents": [
     "onCommand:extension.insertLink",
-    "onCommand:extension.insertFigure"    
+    "onCommand:extension.insertFigure"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -33,24 +33,28 @@
     },
     "commands": [
       {
-        "command":"extension.insertLink",
+        "command": "extension.insertLink",
         "title": "Insert Markdownx Link to File or Image"
-      },{
-        "command":"extension.insertFigure",
-        "title":"Insert Markdownx HTML figure"
-      }],
-      "keybindings":[
-        {
-          "command": "extension.insertLink",
-          "key":"shift+ctrl+l",
-          "mac":"shift+cmd+l",
-          "when":"editorTextFocus"
-        },
-        {"command": "extension.insertFigure",
-        "key":"shift+ctrl+j",
-        "mac":"shift+cmd+j",
-        "when":"editorTextFocus"}
-      ]
+      },
+      {
+        "command": "extension.insertFigure",
+        "title": "Insert Markdownx HTML figure"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.insertLink",
+        "key": "shift+ctrl+l",
+        "mac": "shift+cmd+l",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.insertFigure",
+        "key": "shift+ctrl+j",
+        "mac": "shift+cmd+j",
+        "when": "editorTextFocus"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
